@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Sistema de Inventario del Laboratorio Químico</title>
+</head>
+<body bgcolor="#F5F5F5" text="black">
+
+<h1 align="center"><font color="blue">Sistema de Registro de Inventario del Laboratorio Químico</font></h1>
+<p align="center">Formulario para registrar y gestionar el inventario de un laboratorio químico.</p>
+
+<!-- Formulario de Datos Personales -->
+<form action="/action_page.php" method="post">
+    <fieldset>
+        <legend>Datos Personales</legend>
+        <label for="fname">Nombre:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+
+        <label for="lname">Apellido:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+
+        <label for="id">Número de Identificación:</label><br>
+        <input type="text" id="id" name="id"><br>
+
+        <label for="email">Correo Electrónico:</label><br>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="faculty">Facultad:</label><br>
+        <input type="text" id="faculty" name="faculty"><br>
+
+        <label for="date">Fecha:</label><br>
+        <input type="date" id="date" name="date"><br><br>
+    </fieldset>
+</form>
+
+<!-- Formulario de Sustancias Químicas Comunes -->
+<form action="/action_page.php" method="post">
+    <fieldset>
+        <legend>Sustancias Químicas Comunes</legend>
+        <label for="chem_common">Seleccione las sustancias que tiene su laboratorio:</label><br>
+        <input type="checkbox" name="common_chemicals" value="Ácido clorhídrico (HCl)"> Ácido clorhídrico (HCl)<br>
+        <input type="checkbox" name="common_chemicals" value="Ácido sulfúrico (H₂SO₄)"> Ácido sulfúrico (H₂SO₄)<br>
+        <input type="checkbox" name="common_chemicals" value="Hidróxido de sodio (NaOH)"> Hidróxido de sodio (NaOH)<br>
+        <input type="checkbox" name="common_chemicals" value="Nitrato de plata (AgNO₃)"> Nitrato de plata (AgNO₃)<br>
+        <input type="checkbox" name="common_chemicals" value="Permanganato de potasio (KMnO₄)"> Permanganato de potasio (KMnO₄)<br><br>
+    </fieldset>
+</form>
+
+<!-- Formulario de Sustancias Orgánicas -->
+<form action="/action_page.php" method="post">
+    <fieldset>
+        <legend>Sustancias Orgánicas</legend>
+        <label for="organics">Seleccione las sustancias orgánicas que tiene su laboratorio:</label><br>
+        <input type="checkbox" name="organics" value="Glucosa (C₆H₁₂O₆)"> Glucosa (C₆H₁₂O₆)<br>
+        <input type="checkbox" name="organics" value="Ácido cítrico (C₆H₈O₇)"> Ácido cítrico (C₆H₈O₇)<br>
+        <input type="checkbox" name="organics" value="Metanol (CH₃OH)"> Metanol (CH₃OH)<br>
+        <input type="checkbox" name="organics" value="Acetato de etilo (C₄H₈O₂)"> Acetato de etilo (C₄H₈O₂)<br>
+        <input type="checkbox" name="organics" value="Ácido fórmico (HCOOH)"> Ácido fórmico (HCOOH)<br><br>
+    </fieldset>
+</form>
+
+<!-- Formulario de Gases -->
+<form action="/action_page.php" method="post">
+    <fieldset>
+        <legend>Gases Disponibles</legend>
+        <label for="gases">Seleccione los gases disponibles en su laboratorio:</label><br>
+        <input type="checkbox" name="gases" value="Oxígeno (O₂)"> Oxígeno (O₂)<br>
+        <input type="checkbox" name="gases" value="Dióxido de carbono (CO₂)"> Dióxido de carbono (CO₂)<br>
+        <input type="checkbox" name="gases" value="Nitrógeno (N₂)"> Nitrógeno (N₂)<br>
+        <input type="checkbox" name="gases" value="Hidrógeno (H₂)"> Hidrógeno (H₂)<br>
+        <input type="checkbox" name="gases" value="Argón (Ar)"> Argón (Ar)<br><br>
+    </fieldset>
+</form>
+
+<!-- Formulario de Productos de Limpieza y Seguridad -->
+<form action="/action_page.php" method="post">
+    <fieldset>
+        <legend>Productos de Limpieza y Seguridad</legend>
+        <label for="safety">Seleccione los productos de limpieza y seguridad disponibles:</label><br>
+        <input type="checkbox" name="safety" value="Alcohol desinfectante (etanol 70%)"> Alcohol desinfectante (etanol 70%)<br>
+        <input type="checkbox" name="safety" value="Solución de hipoclorito de sodio (lejía)"> Solución de hipoclorito de sodio (lejía)<br>
+        <input type="checkbox" name="safety" value="Guantes de látex"> Guantes de látex<br>
+        <input type="checkbox" name="safety" value="Máscaras de seguridad"> Máscaras de seguridad<br>
+        <input type="checkbox" name="safety" value="Gafas de protección"> Gafas de protección<br><br>
+    </fieldset>
+</form>
+
+<!-- Tabla de Inventario con mínimo 10 productos -->
+<h2 align="center"><font color="green">Inventario Actual del Laboratorio</font></h2>
+<form action="/action_page.php" method="post">
+    <fieldset>
+        <legend>Registro de Productos en Inventario</legend>
+        <table border="1" width="100%" bgcolor="lightgray">
+            <thead>
+                <tr bgcolor="yellow">
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Unidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ácido clorhídrico (HCl)</td>
+                    <td><input type="number" value="10" name="cantidad_1"></td>
+                     <td>
+                        <select name="unidad_1">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Hidróxido de sodio (NaOH)</td>
+                    <td><input type="number" value="5" name="cantidad_2"></td>
+                     <td>
+                        <select name="unidad_2">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Oxígeno (O₂)</td>
+                    <td><input type="number" value="20" name="cantidad_3"></td>
+                     <td>
+                        <select name="unidad_3">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Ácido acético (CH₃COOH)</td>
+                    <td><input type="number" value="8" name="cantidad_4"></td>
+                     <td>
+                        <select name="unidad_4">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Etanol (C₂H₅OH)</td>
+                    <td><input type="number" value="15" name="cantidad_5"></td>
+                     <td>
+                        <select name="unidad_5">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Benceno (C₆H₆)</td>
+                    <td><input type="number" value="6" name="cantidad_6"></td>
+                     <td>
+                        <select name="unidad_6">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Metanol (CH₃OH)</td>
+                    <td><input type="number" value="12" name="cantidad_7"></td>
+                     <td>
+                        <select name="unidad_7">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Permanganato de potasio (KMnO₄)</td>
+                    <td><input type="number" value="3" name="cantidad_8"></td>
+                    <td>
+                        <select name="unidad_8">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Ácido sulfúrico (H₂SO₄)</td>
+                    <td><input type="number" value="9" name="cantidad_9"></td>
+                    <td>
+                        <select name="unidad_9">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Hidrógeno (H₂)</td>
+                    <td><input type="number" value="25" name="cantidad_10"></td>
+                    <td>
+                        <select name="unidad_10">
+                            <option value="Litros">Litros</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Gramos">Gramos</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr bgcolor="yellow">
+                                  </tr>
+            </tfoot>
+        </table>
+    </fieldset>
+</form>
+
+</body>
+</html>
